@@ -15,15 +15,15 @@ body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #fff;
-    padding-top: 120px; /* ✅ Compensa el header fijo */
+    background-color: #f9f9fc;
+    padding-top: 120px; /* Compensa el header fijo */
 }
 
 /* ===========================
    HEADER
 =========================== */
 header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #89a6f2 0%, #b49ddc 100%);
     color: white;
     padding: 1.5rem 0;
     position: fixed;
@@ -117,26 +117,27 @@ h1 {
 
 h2 {
     font-size: 2rem;
-    color: #667eea;
+    color: #5e6cfa;
     text-align: center;
     margin-bottom: 3rem;
 }
 
 h3 {
     font-size: 1.3rem;
-    color: #764ba2;
+    color: #9b7fd1;
 }
 
 p {
     margin-bottom: 1rem;
     font-size: 1.1rem;
+    color: #555;
 }
 
 /* ===========================
    SECCIÓN INICIO
 =========================== */
 #inicio {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #89a6f2 0%, #b49ddc 100%);
     color: white;
     text-align: center;
     padding: 120px 2rem 80px;
@@ -158,7 +159,7 @@ p {
 }
 
 #inicio a {
-    background: #ff6b6b;
+    background: #4ade80;
     color: white;
     padding: 15px 30px;
     text-decoration: none;
@@ -171,16 +172,16 @@ p {
 }
 
 #inicio a:hover {
-    background: #ff5252;
+    background: #22c55e;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+    box-shadow: 0 5px 15px rgba(74, 222, 128, 0.4);
 }
 
 /* ===========================
    SECCIÓN SERVICIOS
 =========================== */
 #servicios {
-    background: #f8f9fa;
+    background: #f2f4f7;
 }
 
 #servicios > div {
@@ -198,9 +199,8 @@ p {
 }
 
 #servicios h3 {
-    color: #667eea;
+    color: #5e6cfa;
     font-size: 1.4rem;
-    margin-bottom: 1rem;
 }
 
 #servicios p {
@@ -217,7 +217,7 @@ p {
     margin-bottom: 2rem;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border-left: 4px solid #667eea;
+    border-left: 4px solid #5e6cfa;
     transition: all 0.3s ease;
 }
 
@@ -227,7 +227,7 @@ p {
 }
 
 #portfolio h3 {
-    color: #764ba2;
+    color: #9b7fd1;
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
 }
@@ -241,36 +241,22 @@ p {
    SECCIÓN SOBRE MÍ
 =========================== */
 #sobre-mi {
-    background: #f8f9fa;
+    background: #f9f9fc;
     text-align: center;
-}
-
-#sobre-mi p {
-    max-width: 800px;
-    margin: 0 auto 1.5rem;
-    font-size: 1.1rem;
-    color: #555;
 }
 
 /* ===========================
    SECCIÓN CONTACTO
 =========================== */
 #contacto {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #89a6f2 0%, #b49ddc 100%);
     color: white;
 }
 
-#contacto h2 {
+#contacto h2, #contacto h3 {
     color: white;
 }
 
-#contacto h3 {
-    color: white;
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
-/* Formulario */
 form {
     background: rgba(255,255,255,0.1);
     padding: 2rem;
@@ -303,7 +289,7 @@ textarea {
 }
 
 button {
-    background: #ff6b6b;
+    background: #4ade80;
     color: white;
     padding: 15px 30px;
     border: none;
@@ -316,12 +302,11 @@ button {
 }
 
 button:hover {
-    background: #ff5252;
+    background: #22c55e;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+    box-shadow: 0 5px 15px rgba(74, 222, 128, 0.4);
 }
 
-/* Información de contacto */
 #contacto > div:last-child {
     background: rgba(255,255,255,0.1);
     padding: 2rem;
@@ -343,14 +328,14 @@ button:hover {
     padding: 1rem;
     background: rgba(255,255,255,0.1);
     border-radius: 8px;
-    border-left: 4px solid #ff6b6b;
+    border-left: 4px solid #4ade80;
 }
 
 /* ===========================
    FOOTER
 =========================== */
 footer {
-    background: #333;
+    background: #4b5563;
     color: white;
     text-align: center;
     padding: 2rem;
@@ -427,18 +412,13 @@ footer p:last-child {
         justify-content: center;
     }
 }
-/* ===========================
-CORRECCIÓN: evitar que el header tape las secciones
-=========================== */
+
 :target {
-    scroll-margin-top: 120px; /* ajusta según la altura real del header */
+    scroll-margin-top: 120px;
 }
 
-/* ===========================
-ENLACE ACTIVO EN EL MENÚ
-=========================== */
 nav ul li a.active {
-    border-bottom: 2px solid #ff6b6b;
+    border-bottom: 2px solid #4ade80;
     padding-bottom: 4px;
     opacity: 1;
 }
