@@ -1,6 +1,6 @@
-/* ===========================
+/* =========================
    RESET BÁSICO
-=========================== */
+========================= */
 * {
     margin: 0;
     padding: 0;
@@ -12,20 +12,20 @@ html {
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     line-height: 1.6;
     color: #F4F4F6;
-    background-color: #2C2F38; /* 🌑 Gris azulado oscuro */
-    padding-top: 120px;
+    background-color: #2C2F38;
+    padding-top: 120px; /* espacio para header fijo */
 }
 
-/* ===========================
-   HEADER
-=========================== */
+/* =========================
+   HEADER / NAVBAR
+========================= */
 header {
-    background: linear-gradient(135deg, #394357 0%, #4C5872 100%); /* 🔵 Azul grisáceo moderno */
+    background: linear-gradient(135deg, #394357 0%, #4C5872 100%);
     color: white;
-    padding: 1.5rem 0;
+    padding: 1.2rem 0;
     position: fixed;
     width: 100%;
     top: 0;
@@ -34,71 +34,97 @@ header {
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
-}
-
-nav h1 {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #E7EBF3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
 }
 
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
 }
 
 .logo {
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     object-fit: cover;
+    border: 2px solid rgba(255,255,255,0.7);
 }
 
-/* Menú */
-nav ul {
-    display: flex;
+.logo-container h1 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Menú principal */
+.nav-menu {
     list-style: none;
-    gap: 2rem;
+    display: flex;
+    gap: 1.5rem;
 }
 
-nav ul li a {
+.nav-menu li a {
     color: #E7EBF3;
     text-decoration: none;
     font-weight: 500;
-    transition: opacity 0.3s ease;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    opacity: 0.9;
+    transition: opacity 0.3s ease, transform 0.2s ease, border-color 0.2s ease;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 3px;
 }
 
-nav ul li a:hover {
-    opacity: 0.8;
+.nav-menu li a i {
+    font-size: 0.9rem;
 }
 
+.nav-menu li a:hover {
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
+/* Link activo en menú */
+nav ul li a.active {
+    border-bottom-color: #4C82D8;
+    opacity: 1;
+}
+
+/* Redes sociales en header */
 .social-header {
     display: flex;
-    gap: 1rem;
+    gap: 0.7rem;
 }
 
 .social-header a {
     color: #E7EBF3;
-    text-decoration: none;
-    font-weight: 500;
-    opacity: 0.9;
-    transition: opacity 0.2s ease;
+    font-size: 1.1rem;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: rgba(255,255,255,0.12);
+    transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .social-header a:hover {
-    opacity: 0.7;
+    background: #4C82D8;
+    transform: translateY(-1px);
 }
 
-/* ===========================
+/* =========================
    SECCIONES GENERALES
-=========================== */
+========================= */
 section {
     padding: 80px 2rem 60px;
     max-width: 1200px;
@@ -110,7 +136,7 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 2.6rem;
     color: #F4F4F6;
 }
 
@@ -118,142 +144,259 @@ h2 {
     font-size: 2rem;
     color: #9BB4D0;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
 }
 
 h3 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: #A7B8D4;
 }
 
 p {
     margin-bottom: 1rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #D9D9E0;
 }
 
-/* ===========================
-   SECCIÓN INICIO
-=========================== */
+.section-intro {
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    text-align: center;
+    color: #E0E5ED;
+}
+
+/* =========================
+   INICIO / HERO
+========================= */
 #inicio {
     background: linear-gradient(135deg, #394357 0%, #4C5872 100%);
     color: white;
-    text-align: center;
-    padding: 120px 2rem 80px;
+    padding: 120px 2rem 90px;
     margin-top: 0;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 #inicio h1 {
     font-size: 3rem;
-    margin-bottom: 1.5rem;
-    color: #F4F4F6;
+    margin-bottom: 1.2rem;
 }
 
 #inicio p {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
     color: #E0E5ED;
 }
 
-#inicio a {
+.highlight {
+    margin-top: 0.5rem;
+}
+
+.cta-button {
     background: #4C82D8;
     color: white;
-    padding: 15px 30px;
+    padding: 14px 32px;
+    border-radius: 999px;
     text-decoration: none;
-    border-radius: 50px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    display: inline-block;
-    margin-top: 1rem;
-    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    box-shadow: 0 6px 20px rgba(76, 130, 216, 0.4);
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#inicio a:hover {
+.cta-button:hover {
     background: #5B91EA;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(76, 130, 216, 0.4);
+    box-shadow: 0 10px 25px rgba(76, 130, 216, 0.5);
 }
 
-/* ===========================
-   SECCIÓN SERVICIOS
-=========================== */
+/* =========================
+   SERVICIOS
+========================= */
 #servicios {
     background: #343947;
 }
 
-#servicios > div {
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.8rem;
+}
+
+.service-card {
     background: #3A3F4B;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 1.8rem 1.6rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.05);
 }
 
-#servicios > div:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+    border-color: #4C82D8;
 }
 
-#servicios h3 {
-    color: #9BB4D0;
+.service-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(76,130,216,0.15);
+    display: grid;
+    place-items: center;
+    color: #4C82D8;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
 }
 
-#servicios p {
+.service-card h3 {
+    color: #DCE5F7;
+    margin-bottom: 0.6rem;
+}
+
+.service-card p {
     color: #E0E5ED;
+    font-size: 0.95rem;
 }
 
-/* ===========================
-   SECCIÓN PORTFOLIO
-=========================== */
+/* =========================
+   PORTFOLIO
+========================= */
 #portfolio {
     background: #2F3441;
 }
 
-#portfolio > div {
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.8rem;
+}
+
+.portfolio-item {
     background: #3A3F4B;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    border-left: 4px solid #4C82D8;
-    transition: all 0.3s ease;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#portfolio > div:hover {
-    transform: translateX(10px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+.portfolio-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.45);
 }
 
-#portfolio h3 {
-    color: #B6C7E5;
+.portfolio-image {
+    position: relative;
+    overflow: hidden;
+    height: 220px;
 }
 
-#portfolio p {
+.portfolio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.portfolio-item:hover .portfolio-image img {
+    transform: scale(1.05);
+}
+
+.portfolio-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-overlay i {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-info {
+    padding: 1.2rem 1.4rem 1.4rem;
+}
+
+.portfolio-info h3 {
     color: #E3E7F2;
+    margin-bottom: 0.4rem;
 }
 
-/* ===========================
-   SECCIÓN SOBRE MÍ
-=========================== */
+.portfolio-info p {
+    font-size: 0.95rem;
+    color: #C9D1E6;
+}
+
+/* =========================
+   SOBRE MÍ
+========================= */
 #sobre-mi {
     background: #343947;
+}
+
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
     text-align: center;
 }
 
-#sobre-mi p {
-    max-width: 800px;
-    margin: 0 auto 1.5rem;
-    font-size: 1.1rem;
-    color: #D9D9E0;
+.about-content p {
+    font-size: 1rem;
+    color: #E0E5ED;
 }
 
-/* ===========================
-   SECCIÓN CONTACTO
-=========================== */
+.stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+.stat-item {
+    background: #3A3F4B;
+    border-radius: 12px;
+    padding: 1.4rem 1.6rem;
+    min-width: 180px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+.stat-item i {
+    color: #4C82D8;
+    font-size: 1.4rem;
+    margin-bottom: 0.4rem;
+}
+
+.stat-item h3 {
+    color: #E7EBF3;
+    font-size: 1.6rem;
+    margin-bottom: 0.2rem;
+}
+
+/* =========================
+   CONTACTO
+========================= */
 #contacto {
     background: linear-gradient(135deg, #394357 0%, #4C5872 100%);
     color: white;
@@ -263,138 +406,276 @@ p {
     color: #F4F4F6;
 }
 
-#contacto h3 {
-    color: #EAEAEA;
-    font-size: 1.5rem;
+.contact-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2.5rem;
+    align-items: flex-start;
+}
+
+/* Formulario */
+.contact-form-wrapper h3 {
+    font-size: 1.4rem;
     margin-bottom: 1.5rem;
 }
 
 form {
-    background: rgba(255,255,255,0.05);
-    padding: 1.5rem 2rem;
+    background: rgba(255,255,255,0.06);
+    padding: 1.6rem 1.8rem;
     border-radius: 15px;
-    margin: 0 auto 3rem auto; /* Centrado horizontal */
     backdrop-filter: blur(10px);
-    max-width: 600px; /* 📏 Ancho máximo reducido */
-    width: 90%; /* Ajuste adaptable en pantallas pequeñas */
     box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
 label {
     display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
     color: #E0E5ED;
+    font-size: 0.9rem;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
     width: 100%;
-    padding: 12px;
-    margin-bottom: 1.5rem;
+    padding: 11px 12px;
+    margin-bottom: 1.1rem;
     border: none;
     border-radius: 8px;
-    font-size: 1rem;
-    background: rgba(255,255,255,0.1);
-    color: #000000;
+    font-size: 0.95rem;
+    background: rgba(255,255,255,0.14);
+    color: #F4F4F6;
+    outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(244,244,246,0.7);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #4C82D8;
+    background: rgba(255,255,255,0.18);
 }
 
 textarea {
-    height: 120px;
+    min-height: 120px;
     resize: vertical;
 }
 
+/* Botón de formulario */
 button {
     background: #4C82D8;
     color: white;
-    padding: 15px 30px;
+    padding: 13px 24px;
     border: none;
-    border-radius: 50px;
-    font-size: 1.1rem;
-    font-weight: bold;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
     width: 100%;
-    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+button i {
+    font-size: 1rem;
 }
 
 button:hover {
     background: #5B91EA;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(76, 130, 216, 0.4);
+    box-shadow: 0 10px 25px rgba(76,130,216,0.5);
 }
 
-/* ===========================
+/* Info de contacto */
+.contact-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    margin-bottom: 1.1rem;
+}
+
+.contact-item i {
+    font-size: 1.2rem;
+    margin-top: 2px;
+    color: #FBCB6F;
+}
+
+.contact-item.important i {
+    color: #F87171;
+}
+
+.contact-item strong {
+    display: block;
+    font-size: 0.95rem;
+}
+
+.contact-item p {
+    margin-bottom: 0.1rem;
+}
+
+.contact-item a {
+    color: #F4F4F6;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+/* Redes en contacto */
+.social-links {
+    margin-top: 1.4rem;
+    display: flex;
+    gap: 0.7rem;
+}
+
+.social-links a {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: rgba(255,255,255,0.12);
+    color: #F4F4F6;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+    background: #4C82D8;
+    transform: translateY(-1px);
+}
+
+/* =========================
    FOOTER
-=========================== */
+========================= */
 footer {
     background: #1F222B;
     color: #E0E5ED;
+    padding: 1.8rem 1rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
     text-align: center;
-    padding: 2rem;
 }
 
-footer p:last-child {
-    opacity: 0.8;
+.footer-social {
+    margin-top: 0.8rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.7rem;
 }
 
-/* ===========================
-   RESPONSIVE
-=========================== */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-    }
-    nav ul {
-        gap: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .logo {
-        width: 70px;
-        height: 70px;
-    }
-    .social-header {
-        justify-content: center;
-        margin-top: 1rem;
-        flex-wrap: wrap;
-    }
-    section {
-        padding: 60px 1rem 40px;
-    }
-    #inicio {
-        padding: 100px 1rem 60px;
-    }
-    #inicio h1 {
-        font-size: 2rem;
-    }
-    h2 {
-        font-size: 1.5rem;
-    }
-    nav h1 {
-        font-size: 1.5rem;
-    }
+.footer-social a {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: rgba(255,255,255,0.08);
+    color: #E0E5ED;
+    font-size: 0.9rem;
+    transition: background 0.2s ease, transform 0.2s ease;
 }
 
-@media (max-width: 480px) {
-    #inicio h1 {
-        font-size: 1.8rem;
-    }
-    #inicio p {
-        font-size: 1rem;
-    }
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+.footer-social a:hover {
+    background: #4C82D8;
+    transform: translateY(-1px);
 }
 
+/* =========================
+   UTILIDADES
+========================= */
 :target {
     scroll-margin-top: 120px;
 }
 
-nav ul li a.active {
-    border-bottom: 2px solid #4C82D8;
-    padding-bottom: 4px;
-    opacity: 1;
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 992px) {
+    .services-grid,
+    .portfolio-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 150px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem 1.5rem;
+    }
+
+    .logo-container {
+        flex-basis: 100%;
+        justify-content: center;
+    }
+
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .social-header {
+        justify-content: center;
+    }
+
+    section {
+        padding: 60px 1.2rem 40px;
+    }
+
+    #inicio {
+        padding: 110px 1.2rem 70px;
+    }
+
+    #inicio h1 {
+        font-size: 2.3rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .services-grid,
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #inicio h1 {
+        font-size: 2rem;
+    }
+
+    #inicio p {
+        font-size: 0.98rem;
+    }
+
+    .cta-button {
+        width: 100%;
+    }
 }

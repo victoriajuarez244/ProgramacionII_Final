@@ -3,165 +3,370 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Los Leones - Diseño gráfico profesional en Santa Fe, Argentina. Diseños para remeras, logos, tazas, stickers, folletos y presentaciones. Solo archivos digitales.">
+    <meta name="keywords" content="diseño gráfico, logos, remeras, tazas, stickers, folletos, presentaciones, Santa Fe, Argentina">
+    <meta name="author" content="Los Leones">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Los Leones - Diseño Gráfico Profesional">
+    <meta property="og:description" content="Diseños únicos para remeras, tazas, logos, stickers, folletos y presentaciones.">
+    <meta property="og:image" content="img/imagen final.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Los Leones - Diseño Gráfico">
+    <meta name="twitter:description" content="Diseños únicos para remeras, tazas, logos, stickers, folletos y presentaciones.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/imagen final.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js"></script>
-    <title>Diseño Gráfico - Portfolio</title>
+    
+    <title>Los Leones - Diseño Gráfico Profesional | Santa Fe, Argentina</title>
 </head>
 <body>
     <!-- Header -->
     <header>
-    <nav>
-    <div class="logo-container">
-    <img src="img/imagen final.png" alt="Logo Los Leones" class="logo">
-    <h1>Los Leones</h1>
-    </div>
-    <ul>
-    <li><a href="#inicio">Inicio</a></li>
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#portfolio">Portfolio</a></li>
-    <li><a href="#sobre-mi">Sobre Mí</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-    </ul>
-    
-    <!-- Redes sociales en el encabezado -->
-    <div class="social-header">
-    <a href="https://twitter.com/tu_usuario" target="_blank" rel="noopener">Twitter</a>
-    
-    </div>
-    </nav>
+        <nav>
+            <div class="logo-container">
+                <img src="img/imagen final.png" alt="Logo Los Leones - Diseño Gráfico" class="logo">
+                <h1>Los Leones</h1>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="#inicio"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="#servicios"><i class="fas fa-briefcase"></i> Servicios</a></li>
+                <li><a href="#portfolio"><i class="fas fa-images"></i> Portfolio</a></li>
+                <li><a href="#sobre-mi"><i class="fas fa-user"></i> Sobre Mí</a></li>
+                <li><a href="#contacto"><i class="fas fa-envelope"></i> Contacto</a></li>
+            </ul>
+            
+            <!-- Redes sociales en el encabezado -->
+            <div class="social-header">
+                <a href="https://www.instagram.com/tu_usuario" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/tu_usuario" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://twitter.com/tu_usuario" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://wa.me/5491112345678" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </nav>
     </header>
 
-    <!-- Inicio -->
+    <!-- Sección Inicio -->
     <section id="inicio">
-    <h1>Diseños que Comunican</h1>
-    <p>Creo diseños únicos para remeras, tazas, logos, stickers, folletos y presentaciones.</p>
-    <p><strong>Solo vendo el diseño digital - Vos elegís dónde imprimirlo</strong></p>
-    <a href="#contacto">Pedí tu Diseño</a>
+        <div class="hero-content">
+            <h1>Diseños que Comunican</h1>
+            <p>Creo diseños únicos para remeras, tazas, logos, stickers, folletos y presentaciones.</p>
+            <p class="highlight"><strong>Solo vendo el diseño digital - Vos elegís dónde imprimirlo</strong></p>
+            <a href="#contacto" class="cta-button">Pedí tu Diseño</a>
+        </div>
     </section>
 
-    <!-- Servicios -->
+    <!-- Sección Servicios -->
     <section id="servicios">
-    <h2>Mis Servicios</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-    Omnis dignissimos ratione totam porro incidunt, iusto illo veniam doloribus 
-    quam dolor consequuntur maxime distinctio alias, quibusdam optio sit perferendis 
-    ipsum dicta.</p>
-    
-    
+        <h2>Mis Servicios</h2>
+        <p class="section-intro">Ofrezco soluciones de diseño gráfico personalizadas para tu marca o proyecto personal. Todos los diseños se entregan en formato digital de alta calidad.</p>
+        
+        <div class="services-grid">
+            <article class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-tshirt"></i>
+                </div>
+                <h3>Diseño de Remeras</h3>
+                <p>Estampados únicos y creativos para tu marca o evento. Archivos listos para imprimir.</p>
+            </article>
+
+            <article class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-mug-hot"></i>
+                </div>
+                <h3>Diseño de Tazas</h3>
+                <p>Diseños personalizados para tazas, perfectos para regalos o merchandising.</p>
+            </article>
+
+            <article class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3>Logos Profesionales</h3>
+                <p>Identidad visual completa para tu marca. Logo en múltiples formatos y variantes.</p>
+            </article>
+
+            <article class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-sticky-note"></i>
+                </div>
+                <h3>Stickers</h3>
+                <p>Packs de stickers creativos para decorar, regalar o promocionar tu marca.</p>
+            </article>
+
+            <article class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <h3>Folletos y Flyers</h3>
+                <p>Diseños informativos y atractivos para promocionar tus productos o servicios.</p>
+            </article>
+
+            <article class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-presentation"></i>
+                </div>
+                <h3>Presentaciones</h3>
+                <p>Slides profesionales para tus presentaciones corporativas o académicas.</p>
+            </article>
+        </div>
     </section>
 
-    <!-- Portfolio -->
+    <!-- Sección Portfolio -->
     <section id="portfolio">
-    <h2>Mi Portfolio</h2>
-    
-    <div>
-    <h3>Diseño de Remera</h3>
-    <p>Estampado moderno y colorido</p>
-    </div>
+        <h2>Mi Portfolio</h2>
+        
+        <div class="portfolio-grid">
+            <article class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&h=400&fit=crop" alt="Diseño de Remera" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <h3>Diseño de Remera</h3>
+                    <p>Estampado moderno y colorido</p>
+                </div>
+            </article>
 
-    <div>
-    <h3>Logo Corporativo</h3>
-    <p>Identidad visual completa</p>
-    </div>
+            <article class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="https://images.unsplash.com/photo-1599507593499-a3f7d7d97667?w=600&h=400&fit=crop" alt="Logo Corporativo" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <h3>Logo Corporativo</h3>
+                    <p>Identidad visual completa</p>
+                </div>
+            </article>
 
-    <div>
-    <h3>Diseño de Taza</h3>
-    <p>Personalizado para regalo</p>
-    </div>
+            <article class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=600&h=400&fit=crop" alt="Diseño de Taza" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <h3>Diseño de Taza</h3>
+                    <p>Personalizado para regalo</p>
+                </div>
+            </article>
 
-    <div>
-    <h3>Pack de Stickers</h3>
-    <p>Colección temática</p>
-    </div>
+            <article class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=600&h=400&fit=crop" alt="Pack de Stickers" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <h3>Pack de Stickers</h3>
+                    <p>Colección temática</p>
+                </div>
+            </article>
 
-    <div>
-    <h3>Folleto Promocional</h3>
-    <p>Diseño informativo y atractivo</p>
-    </div>
+            <article class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=600&h=400&fit=crop" alt="Folleto Promocional" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <h3>Folleto Promocional</h3>
+                    <p>Diseño informativo y atractivo</p>
+                </div>
+            </article>
 
-    <div>
-    <h3>Presentación Corporativa</h3>
-    <p>Slides profesionales</p>
-    </div>
+            <article class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=400&fit=crop" alt="Presentación Corporativa" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <h3>Presentación Corporativa</h3>
+                    <p>Slides profesionales</p>
+                </div>
+            </article>
+        </div>
     </section>
 
-    <!-- Sobre Mi -->
+    <!-- Sección Sobre Mí -->
     <section id="sobre-mi">
-    <h2>Sobre Mí</h2>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio, temporibus. Neque doloremque itaque vitae perspiciatis, beatae iure tenetur incidunt possimus, odio aliquid rerum temporibus reiciendis, maiores amet iste ratione praesentium!</p>
+        <h2>Sobre Mí</h2>
+        <div class="about-content">
+            <p>Soy diseñador gráfico con pasión por crear piezas visuales que comunican y conectan. Me especializo en diseños para productos personalizados y branding.</p>
+            <p>Trabajo con clientes de toda Argentina, entregando archivos digitales de alta calidad listos para imprimir donde vos prefieras.</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>100+</h3>
+                    <p>Proyectos Completados</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-smile"></i>
+                    <h3>50+</h3>
+                    <p>Clientes Satisfechos</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-clock"></i>
+                    <h3>24-48hs</h3>
+                    <p>Tiempo de Entrega</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Contacto -->
+    <!-- Sección Contacto -->
     <section id="contacto">
-    <h2>Contacto</h2>
-    
-    <h3>Pedí tu Presupuesto</h3>
-    <form>
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" required>
+        <h2>Contacto</h2>
+        
+        <div class="contact-container">
+            <div class="contact-form-wrapper">
+                <h3>Pedí tu Presupuesto</h3>
+                <form id="contact-form">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
 
-    <label for="servicio">Tipo de Diseño:</label>
-    <select id="servicio" name="servicio">
-    <option>Remera</option>
-    <option>Taza</option>
-    <option>Logo</option>
-    <option>Stickers</option>
-    <option>Folleto</option>
-    <option>Presentación</option>
-    <option>Curriculum vitae</option>
-    <option>Publicidad imágen</option>
+                    <label for="servicio">Tipo de Diseño:</label>
+                    <select id="servicio" name="servicio">
+                        <option>Remera</option>
+                        <option>Taza</option>
+                        <option>Logo</option>
+                        <option>Stickers</option>
+                        <option>Folleto</option>
+                        <option>Presentación</option>
+                        <option>Curriculum vitae</option>
+                        <option>Publicidad imagen</option>
+                    </select>
 
+                    <label for="mensaje">Descripción del Proyecto:</label>
+                    <textarea id="mensaje" name="mensaje" placeholder="Contame qué necesitás, colores, estilo, etc." required></textarea>
 
-    </select>
+                    <button type="submit"><i class="fas fa-paper-plane"></i> Enviar Solicitud</button>
+                </form>
+            </div>
 
-    <label for="mensaje">Descripción del Proyecto:</label>
-    <textarea id="mensaje" name="mensaje" placeholder="Contame qué necesitás, colores, estilo, etc."></textarea>
-
-    <button type="submit">Enviar Solicitud</button>
-    </form>
-    
-
-    <div>
-    <h3>Información de Contacto</h3>
-    <p>Email: contactolosleones00@gmail.com</p>
-    <p>WhatsApp: +54 9 11 1234-5678</p>
-    <p>Ubicación: Santa Fe, Argentina</p>
-    <p><strong>Importante: Solo vendo el diseño digital (archivos PNG, JPG, AI, PSD)</strong></p>
-    <p>Redes sociales: redes </p>
-    </div>
-
+            <div class="contact-info">
+                <h3>Información de Contacto</h3>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <strong>Email</strong>
+                        <p><a href="mailto:contactolosleones00@gmail.com">contactolosleones00@gmail.com</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <div>
+                        <strong>WhatsApp</strong>
+                        <p><a href="https://wa.me/5491112345678" target="_blank">+54 9 11 1234-5678</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <strong>Ubicación</strong>
+                        <p>Santa Fe, Argentina</p>
+                    </div>
+                </div>
+                <div class="contact-item important">
+                    <i class="fas fa-info-circle"></i>
+                    <div>
+                        <strong>Importante</strong>
+                        <p>Solo vendo el diseño digital (archivos PNG, JPG, AI, PSD)</p>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://www.instagram.com/tu_usuario" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/tu_usuario" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://twitter.com/tu_usuario" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer>
-    <p>&copy; 2025 Diseño Creativo. Todos los derechos reservados.</p>
-    <p>Redes sociales: Twitter</p>
+        <div class="footer-content">
+            <p>&copy; 2025 Los Leones - Diseño Gráfico. Todos los derechos reservados.</p>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/tu_usuario" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/tu_usuario" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://twitter.com/tu_usuario" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+        </div>
     </footer>
-</body>
-<script>
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll("nav ul li a");
-    
-    window.addEventListener("scroll", () => {
-    let current = "";
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 150; // margen para el header
-        const sectionHeight = section.clientHeight;
-        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        current = section.getAttribute("id");
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === `#${current}`) {
-        link.classList.add("active");
-        }
-    });
-    });
+
+    <script src="js/script.js"></script>
+    <script>
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll("nav ul li a");
+        
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute("id");
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+                if (link.getAttribute("href") === `#${current}`) {
+                    link.classList.add("active");
+                }
+            });
+        });
     </script>
-    
+</body>
 </html>
