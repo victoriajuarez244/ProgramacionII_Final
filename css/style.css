@@ -679,3 +679,57 @@ footer {
         width: 100%;
     }
 }
+
+/* =========================
+   DRAG & DROP FILE UPLOAD
+========================= */
+.drop-zone {
+    margin-bottom: 1.4rem;
+    padding: 1.2rem 1rem;
+    border-radius: 10px;
+    border: 2px dashed rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.06);
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.drop-zone i {
+    font-size: 2rem;
+    color: #FBCB6F;
+    margin-bottom: 0.4rem;
+}
+
+.drop-zone p {
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
+}
+
+.drop-zone__button {
+    color: #FFD36D;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.drop-zone__hint {
+    font-size: 0.85rem;
+    color: rgba(240,240,244,0.8);
+}
+
+.drop-zone__input {
+    display: none;
+}
+
+.drop-zone__file-name {
+    font-size: 0.86rem;
+    color: #D9D9E0;
+    margin-top: 0.4rem;
+    min-height: 1.1rem;
+}
+
+/* estado al arrastrar */
+.drop-zone--over {
+    background: rgba(76,130,216,0.15);
+    border-color: #4C82D8;
+    transform: translateY(-2px);
+}

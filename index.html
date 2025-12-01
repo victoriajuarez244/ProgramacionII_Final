@@ -258,10 +258,10 @@
                 <form id="contact-form">
                     <label for="nombre">Nombre:</label>
                     <input type="text" id="nombre" name="nombre" required>
-
+                
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" required>
-
+                
                     <label for="servicio">Tipo de Diseño:</label>
                     <select id="servicio" name="servicio">
                         <option>Remera</option>
@@ -273,10 +273,28 @@
                         <option>Curriculum vitae</option>
                         <option>Publicidad imagen</option>
                     </select>
-
+                
                     <label for="mensaje">Descripción del Proyecto:</label>
                     <textarea id="mensaje" name="mensaje" placeholder="Contame qué necesitás, colores, estilo, etc." required></textarea>
-
+                
+                    <!-- Drag & Drop Upload -->
+                    <label for="archivo">Referencias / bocetos (opcional):</label>
+                    <div id="drop-zone" class="drop-zone">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Arrastrá tus archivos aquí o <span class="drop-zone__button">hacé clic para seleccionarlos</span></p>
+                        <p class="drop-zone__hint">Formatos aceptados: JPG, PNG, PDF (máx. 10MB)</p>
+                
+                        <input 
+                            type="file" 
+                            id="archivo" 
+                            name="archivo" 
+                            accept=".jpg,.jpeg,.png,.pdf"
+                            class="drop-zone__input"
+                        >
+                
+                        <p id="drop-zone-file-name" class="drop-zone__file-name"></p>
+                    </div>
+                
                     <button type="submit"><i class="fas fa-paper-plane"></i> Enviar Solicitud</button>
                 </form>
             </div>

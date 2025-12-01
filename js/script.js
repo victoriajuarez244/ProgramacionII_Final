@@ -215,4 +215,60 @@ backToTopButton.addEventListener('click', function() {
     });
 });
 
+// =========================
+// Drag & Drop File Upload
+// =========================
+document.addEventListener('DOMContentLoaded', function () {
+    const dropZone = document.getElementById('drop-zone');
+    const fileInput = document.getElementById('archivo');
+    const fileNameLabel = document.getElementById('drop-zone-file-name');
+
+    if (!dropZone || !fileInput) return;
+
+    // Al hacer clic en la zona, abrimos el selector de archivos
+    dropZone.addEventListener('click', () => {
+        fileInput.click();
+    });
+
+    // Cuando se selecciona archivo desde el diálogo
+    fileInput.addEventListener('change', () => {
+        if (fileInput.files && fileInput.files.length > 0) {
+            fileNameLabel.textContent = fileInput.files[0].name;
+        } else {
+            fileNameLabel.textContent = '';
+        }
+    });
+
+    // Evitar que el navegador abra el archivo
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+        dropZone.addEventListener(eventName, (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+        });
+    });
+
+    // Estilos cuando el archivo está encima
+    ['dragenter', 'dragover'].forEach(eventName => {
+        dropZone.addEventListener(eventName, () => {
+            dropZone.classList.add('drop-zone--over');
+        });
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+        dropZone.addEventListener(eventName, () => {
+            dropZone.classList.remove('drop-zone--over');
+        });
+    });
+
+    // Manejar el archivo soltado
+    dropZone.addEventListener('drop', (e) => {
+        const files = e.dataTransfer.files;
+        if (files && files.length > 0) {
+            fileInput.files = files;  // Asignar archivos al input
+            fileNameLabel.textContent = files[0].name;
+        }
+    });
+});
+
+
 
