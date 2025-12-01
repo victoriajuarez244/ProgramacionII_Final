@@ -1,8 +1,7 @@
+// mensaje de consola inicial
 console.log('🎨 Página de Diseño Gráfico cargada correctamente!');
 
-// =========================
-// PRELOADER
-// =========================
+// preloader 
 window.addEventListener('load', function() {
     const preloader = document.getElementById('preloader');
     if (preloader) {
@@ -12,9 +11,7 @@ window.addEventListener('load', function() {
     }
 });
 
-// =========================
-// NAVEGACIÓN ACTIVA
-// =========================
+// navegación activa - resalta la sección actual en el menú
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll("nav ul li a");
 
@@ -36,9 +33,7 @@ window.addEventListener("scroll", () => {
     });
 });
 
-// =========================
-// SMOOTH SCROLLING CON COMPENSACIÓN DE HEADER
-// =========================
+// scroll suave con compensación del header fijo
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -56,9 +51,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// =========================
-// ANIMACIONES AL HACER SCROLL
-// =========================
+// animaciones al hacer scroll - intersection observer
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -83,41 +76,39 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// =========================
-// SELECT PERSONALIZADO
-// =========================
+// select personalizado - dropdown con diseño custom
 document.addEventListener('DOMContentLoaded', function() {
     const customSelect = document.getElementById('custom-servicio');
     const trigger = customSelect.querySelector('.custom-select__trigger');
     const options = customSelect.querySelectorAll('.custom-select__options li');
     const hiddenSelect = document.getElementById('servicio');
 
-    // Abrir/cerrar el select
+    // abrir y cerrar el select
     trigger.addEventListener('click', function() {
         customSelect.classList.toggle('open');
     });
 
-    // Seleccionar opción
+    // seleccionar una opción
     options.forEach(option => {
         option.addEventListener('click', function() {
             const value = this.getAttribute('data-value');
             
-            // Actualizar texto visible
+            // actualizar texto visible
             trigger.querySelector('span').textContent = value;
             
-            // Actualizar select oculto
+            // actualizar select oculto
             hiddenSelect.value = value;
             
-            // Marcar como seleccionado
+            // marcar como seleccionado
             options.forEach(opt => opt.classList.remove('selected'));
             this.classList.add('selected');
             
-            // Cerrar el select
+            // cerrar el select
             customSelect.classList.remove('open');
         });
     });
 
-    // Cerrar al hacer clic fuera
+    // cerrar al hacer clic fuera del select
     document.addEventListener('click', function(e) {
         if (!customSelect.contains(e.target)) {
             customSelect.classList.remove('open');
@@ -125,11 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
-
-// =========================
-// DRAG & DROP FILE UPLOAD
-// =========================
+// arrastrar y soltar archivos
 document.addEventListener('DOMContentLoaded', function () {
     const dropZone = document.getElementById('drop-zone');
     const fileInput = document.getElementById('archivo');
@@ -137,10 +124,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (!dropZone || !fileInput) return;
 
+    // click en la zona para abrir selector de archivos
     dropZone.addEventListener('click', () => {
         fileInput.click();
     });
 
+    // actualizar nombre del archivo al seleccionar
     fileInput.addEventListener('change', () => {
         if (fileInput.files && fileInput.files.length > 0) {
             fileNameLabel.textContent = fileInput.files[0].name;
@@ -149,6 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // prevenir comportamiento por defecto en eventos de drag
     ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
         dropZone.addEventListener(eventName, (e) => {
             e.preventDefault();
@@ -156,18 +146,21 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // agregar clase visual cuando se arrastra sobre la zona
     ['dragenter', 'dragover'].forEach(eventName => {
         dropZone.addEventListener(eventName, () => {
             dropZone.classList.add('drop-zone--over');
         });
     });
 
+    // quitar clase visual al salir o soltar
     ['dragleave', 'drop'].forEach(eventName => {
         dropZone.addEventListener(eventName, () => {
             dropZone.classList.remove('drop-zone--over');
         });
     });
 
+    // manejar el archivo soltado
     dropZone.addEventListener('drop', (e) => {
         const files = e.dataTransfer.files;
         if (files && files.length > 0) {
@@ -177,9 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// =========================
-// BOTÓN VOLVER ARRIBA
-// =========================
+// botón volver arriba - scroll to top
 const backToTopButton = document.createElement('button');
 backToTopButton.innerHTML = '↑';
 backToTopButton.style.cssText = `
@@ -202,6 +193,7 @@ backToTopButton.style.cssText = `
 
 document.body.appendChild(backToTopButton);
 
+// mostrar u ocultar botón según scroll
 window.addEventListener('scroll', function() {
     if (window.pageYOffset > 300) {
         backToTopButton.style.opacity = '1';
@@ -212,6 +204,7 @@ window.addEventListener('scroll', function() {
     }
 });
 
+// acción del botón volver arriba
 backToTopButton.addEventListener('click', function() {
     window.scrollTo({
         top: 0,
@@ -219,9 +212,7 @@ backToTopButton.addEventListener('click', function() {
     });
 });
 
-// =========================
-// EFECTO HOVER EN BOTONES
-// =========================
+// efecto hover en botones - animación al pasar el mouse
 document.querySelectorAll('button, a[href="#contacto"]').forEach(button => {
     button.addEventListener('mouseenter', function() {
         this.style.transform = 'translateY(-2px) scale(1.05)';
@@ -232,29 +223,27 @@ document.querySelectorAll('button, a[href="#contacto"]').forEach(button => {
     });
 });
 
-// =========================
-// EMAILJS - ENVÍO DE FORMULARIO (SIN ARCHIVO ADJUNTO)
-// =========================
+// emailjs - envío del formulario de contacto
 const contactForm = document.getElementById('contact-form');
 
 contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
     
-    // Obtener los valores del formulario
+    // obtener los valores del formulario
     const nombre = document.getElementById('nombre').value;
     const email = document.getElementById('email').value;
     const servicio = document.getElementById('servicio').value;
     const mensaje = document.getElementById('mensaje').value;
     const archivoInput = document.getElementById('archivo');
     
-    // Verificar si hay archivo
+    // verificar si hay archivo adjunto
     let archivoInfo = 'No se adjuntó ningún archivo.';
     if (archivoInput.files && archivoInput.files[0]) {
         const file = archivoInput.files[0];
         archivoInfo = `El cliente tiene un archivo para enviar: ${file.name} (${(file.size / 1024).toFixed(2)} KB).\nPedile que te lo envíe por WhatsApp o email.`;
     }
     
-    // Parámetros para EmailJS
+    // parámetros para la plantilla de emailjs
     const templateParams = {
         nombre: nombre,
         email: email,
@@ -263,51 +252,54 @@ contactForm.addEventListener('submit', function(e) {
         archivo_info: archivoInfo
     };
     
-    // Cambiar el texto del botón
+    // cambiar el texto del botón mientras se envía
     const submitButton = contactForm.querySelector('button[type="submit"]');
     const originalText = submitButton.innerHTML;
     submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
     submitButton.disabled = true;
     
-    // Enviar el email
+    // enviar el email usando emailjs
     emailjs.send('service_e4p8ynn', 'template_qfiaeii', templateParams)
         .then(function(response) {
             console.log('SUCCESS!', response.status, response.text);
             
-            // Mostrar mensaje de éxito
+            // mostrar mensaje de éxito
             if (archivoInput.files && archivoInput.files[0]) {
-                alert('¡Mensaje enviado con éxito!\n\nPor favor, envianos tu archivo de referencia por:\n• WhatsApp: +54 9 11 1234-5678\n• Email: contactolosleones00@gmail.com');
+                alert('¡Mensaje enviado con éxito!\n\nPor favor, envianos tu archivo de referencia por:\n• WhatsApp: +54 341 300-5198\n• Email: contactolosleones00@gmail.com');
             } else {
                 alert('¡Mensaje enviado con éxito! Te responderemos pronto.');
             }
             
-            // Limpiar el formulario
+            // limpiar el formulario
             contactForm.reset();
             
-            // Resetear el custom select
+            // resetear el custom select al valor por defecto
             const customSelectTrigger = document.querySelector('.custom-select__trigger span');
             if (customSelectTrigger) {
                 customSelectTrigger.textContent = 'Remera';
             }
             
-            // Limpiar el nombre del archivo en el drop zone
+            // limpiar el nombre del archivo en el drop zone
             const dropZoneFileName = document.getElementById('drop-zone-file-name');
             if (dropZoneFileName) {
                 dropZoneFileName.textContent = '';
             }
             
-            // Restaurar el botón
+            // restaurar el botón al estado original
             submitButton.innerHTML = originalText;
             submitButton.disabled = false;
             
         }, function(error) {
             console.log('FAILED...', error);
             
-            // Mostrar mensaje de error
+            // mostrar mensaje de error
             alert('Hubo un error al enviar el mensaje. Por favor, intentá de nuevo o contactanos por WhatsApp.');
             
-            // Restaurar el botón
+            // restaurar el botón al estado original
             submitButton.innerHTML = originalText;
             submitButton.disabled = false;
         });
 });
+
+
+
