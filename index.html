@@ -37,6 +37,14 @@
     <title>Los Leones - Diseño Gráfico Profesional | Santa Fe, Argentina</title>
 </head>
 <body>
+
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="spinner"></div>
+            <p>Cargando...</p>
+        </div>
+    </div>
     <!-- Header -->
     <header>
         <nav>
@@ -129,7 +137,7 @@
 
             <article class="service-card">
                 <div class="service-icon">
-                    <i class="fas fa-presentation"></i>
+                    <i class="fas fa-file-powerpoint"></i>
                 </div>
                 <h3>Presentaciones</h3>
                 <p>Slides profesionales para tus presentaciones corporativas o académicas.</p>
@@ -263,14 +271,31 @@
                     <input type="email" id="email" name="email" required>
                 
                     <label for="servicio">Tipo de Diseño:</label>
-                    <select id="servicio" name="servicio">
-                        <option>Remera</option>
+                    
+                    <!-- SELECT PERSONALIZADO -->
+                    <div class="custom-select" id="custom-servicio">
+                        <div class="custom-select__trigger">
+                            <span>Remera</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <ul class="custom-select__options">
+                            <li data-value="Remera">Remera</li>
+                            <li data-value="Taza">Taza</li>
+                            <li data-value="Logo">Logo</li>
+                            <li data-value="Stickers">Stickers</li>
+                            <li data-value="Folleto">Folleto</li>
+                            <li data-value="Presentación">Presentación</li>
+                            <li data-value="Publicidad imagen">Publicidad imagen</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Select oculto para enviar el valor -->
+                    <select id="servicio" name="servicio" style="display: none;" required>                        <option>Remera</option>
                         <option>Taza</option>
                         <option>Logo</option>
                         <option>Stickers</option>
                         <option>Folleto</option>
                         <option>Presentación</option>
-                        <option>Curriculum vitae</option>
                         <option>Publicidad imagen</option>
                     </select>
                 
@@ -364,27 +389,5 @@
     </footer>
 
     <script src="js/script.js"></script>
-    <script>
-        const sections = document.querySelectorAll("section");
-        const navLinks = document.querySelectorAll("nav ul li a");
-        
-        window.addEventListener("scroll", () => {
-            let current = "";
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 150;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                    current = section.getAttribute("id");
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove("active");
-                if (link.getAttribute("href") === `#${current}`) {
-                    link.classList.add("active");
-                }
-            });
-        });
-    </script>
 </body>
 </html>
