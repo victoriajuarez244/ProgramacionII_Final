@@ -8,7 +8,7 @@ window.addEventListener('load', function() {
     if (preloader) {
         setTimeout(() => {
             preloader.classList.add('hidden');
-        }, 800); // Espera 800ms antes de ocultar
+        }, 800); 
     }
 });
 
@@ -125,78 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// =========================
-// VALIDACIÓN DEL FORMULARIO
-// =========================
-const form = document.querySelector('form');
-if (form) {
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const nombre = document.getElementById('nombre').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const servicio = document.getElementById('servicio').value;
-        const mensaje = document.getElementById('mensaje').value.trim();
-        
-        if (!nombre) {
-            alert('Por favor, ingresá tu nombre');
-            return;
-        }
-        
-        if (!email || !isValidEmail(email)) {
-            alert('Por favor, ingresá un email válido');
-            return;
-        }
-        
-        if (!mensaje) {
-            alert('Por favor, describí tu proyecto');
-            return;
-        }
-        
-        showSuccessMessage();
-        this.reset();
-        
-        // Resetear el select personalizado
-        const customTrigger = document.querySelector('.custom-select__trigger span');
-        if (customTrigger) {
-            customTrigger.textContent = 'Remera';
-        }
-    });
-}
 
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
-
-function showSuccessMessage() {
-    const successDiv = document.createElement('div');
-    successDiv.innerHTML = `
-        <div style="
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #4CAF50;
-            color: white;
-            padding: 20px 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            z-index: 10000;
-            text-align: center;
-            font-size: 1.1rem;
-        ">
-            ✅ ¡Mensaje enviado correctamente!<br>
-            <small>Te contactaremos pronto</small>
-        </div>
-    `;
-    
-    document.body.appendChild(successDiv);
-    
-    setTimeout(() => {
-        document.body.removeChild(successDiv);
-    }, 3000);
-}
 
 // =========================
 // DRAG & DROP FILE UPLOAD
@@ -301,4 +230,84 @@ document.querySelectorAll('button, a[href="#contacto"]').forEach(button => {
     button.addEventListener('mouseleave', function() {
         this.style.transform = 'translateY(0) scale(1)';
     });
+});
+
+// =========================
+// EMAILJS - ENVÍO DE FORMULARIO (SIN ARCHIVO ADJUNTO)
+// =========================
+const contactForm = document.getElementById('contact-form');
+
+contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Obtener los valores del formulario
+    const nombre = document.getElementById('nombre').value;
+    const email = document.getElementById('email').value;
+    const servicio = document.getElementById('servicio').value;
+    const mensaje = document.getElementById('mensaje').value;
+    const archivoInput = document.getElementById('archivo');
+    
+    // Verificar si hay archivo
+    let archivoInfo = 'No se adjuntó ningún archivo.';
+    if (archivoInput.files && archivoInput.files[0]) {
+        const file = archivoInput.files[0];
+        archivoInfo = `El cliente tiene un archivo para enviar: ${file.name} (${(file.size / 1024).toFixed(2)} KB).\nPedile que te lo envíe por WhatsApp o email.`;
+    }
+    
+    // Parámetros para EmailJS
+    const templateParams = {
+        nombre: nombre,
+        email: email,
+        servicio: servicio,
+        mensaje: mensaje,
+        archivo_info: archivoInfo
+    };
+    
+    // Cambiar el texto del botón
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const originalText = submitButton.innerHTML;
+    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+    submitButton.disabled = true;
+    
+    // Enviar el email
+    emailjs.send('service_e4p8ynn', 'template_qfiaeii', templateParams)
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            
+            // Mostrar mensaje de éxito
+            if (archivoInput.files && archivoInput.files[0]) {
+                alert('¡Mensaje enviado con éxito!\n\nPor favor, envianos tu archivo de referencia por:\n• WhatsApp: +54 9 11 1234-5678\n• Email: contactolosleones00@gmail.com');
+            } else {
+                alert('¡Mensaje enviado con éxito! Te responderemos pronto.');
+            }
+            
+            // Limpiar el formulario
+            contactForm.reset();
+            
+            // Resetear el custom select
+            const customSelectTrigger = document.querySelector('.custom-select__trigger span');
+            if (customSelectTrigger) {
+                customSelectTrigger.textContent = 'Remera';
+            }
+            
+            // Limpiar el nombre del archivo en el drop zone
+            const dropZoneFileName = document.getElementById('drop-zone-file-name');
+            if (dropZoneFileName) {
+                dropZoneFileName.textContent = '';
+            }
+            
+            // Restaurar el botón
+            submitButton.innerHTML = originalText;
+            submitButton.disabled = false;
+            
+        }, function(error) {
+            console.log('FAILED...', error);
+            
+            // Mostrar mensaje de error
+            alert('Hubo un error al enviar el mensaje. Por favor, intentá de nuevo o contactanos por WhatsApp.');
+            
+            // Restaurar el botón
+            submitButton.innerHTML = originalText;
+            submitButton.disabled = false;
+        });
 });
