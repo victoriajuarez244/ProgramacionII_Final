@@ -37,7 +37,7 @@ mongoose.connect(MONGO_URI, {
     console.error('❌ Error conectando a MongoDB:', err);
 });
 
-// ==== SCHEMA Y MODELO DE PORTFOLIO ==== //
+// SCHEMA Y MODELO DE PORTFOLIO 
 const portfolioSchema = new mongoose.Schema({
     titulo: String,
     descripcion: String,
@@ -46,7 +46,7 @@ const portfolioSchema = new mongoose.Schema({
 
 const Portfolio = mongoose.model('Portfolio', portfolioSchema, 'portfolio');
 
-// ==== RUTAS ==== //
+//RUTAS 
 
 // Ruta de prueba
 app.get('/health', (req, res) => {
@@ -88,19 +88,8 @@ app.get('/debug/db', async (req, res) => {
   }
 });
 
-// (Opcional) Crear nuevo item de portfolio por POST
-app.post('/portfolio', async (req, res) => {
-    try {
-        const nuevoItem = new Portfolio(req.body);
-        await nuevoItem.save();
-        res.status(201).json(nuevoItem);
-    } catch (err) {
-        console.error('❌ Error en POST /portfolio:', err);
-        res.status(400).json({ error: 'Error creando el item de portfolio' });
-    }
-});
 
-// ==== INICIAR SERVIDOR ==== //
+// INICIAR SERVIDOR
 app.listen(PORT, () => {
     console.log(`🚀 Servidor backend funcionando en puerto ${PORT}`);
 });

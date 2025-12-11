@@ -1,9 +1,9 @@
 // mensaje de consola inicial
 console.log('🎨 Página de Diseño Gráfico cargada correctamente!');
 
-// ============================================================
+
 // PRELOADER
-// ============================================================
+
 window.addEventListener('load', function() {
     const preloader = document.getElementById('preloader');
     if (preloader) {
@@ -13,9 +13,9 @@ window.addEventListener('load', function() {
     }
 });
 
-// ============================================================
+
 // NAVEGACIÓN ACTIVA
-// ============================================================
+
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll("nav ul li a");
 
@@ -234,10 +234,10 @@ contactForm.addEventListener('submit', function(e) {
         });
 });
 
-/* ============================================================
-   📌 PORTFOLIO ESTÁTICO + LIGHTBOX USANDO DATOS DE ATLAS
-   ============================================================ */
-   document.addEventListener("DOMContentLoaded", async () => {
+
+//PORTFOLIO ESTÁTICO + LIGHTBOX USANDO DATOS DE ATLAS
+
+document.addEventListener("DOMContentLoaded", async () => {
 
     // 1) Cargar datos desde Atlas
     let portfolioAtlas = [];
@@ -270,9 +270,7 @@ contactForm.addEventListener('submit', function(e) {
     });
 });
 
-/* ============================================================
-   🎨 LIGHTBOX
-   ============================================================ */
+// lightbox
 function abrirLightbox(item) {
     const modal = document.getElementById("portfolio-modal");
     const modalTitle = document.getElementById("portfolio-modal-title");
