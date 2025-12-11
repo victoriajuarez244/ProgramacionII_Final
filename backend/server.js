@@ -48,7 +48,7 @@ const portfolioSchema = new mongoose.Schema({
 }, { collection: 'portfolio' }); // <-- nombre exacto de la colección en Atlas
 
 // Forzar la colección 'portfolio' (tercer parámetro)
-const Portfolio = mongoose.model('portfolio', portfolioSchema, 'portfolio');
+const Portfolio = mongoose.model('Portfolio', portfolioSchema, 'portfolio');
 
 // ==== RUTAS ==== //
 
