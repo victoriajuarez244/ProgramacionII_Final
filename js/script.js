@@ -242,8 +242,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // 1) Cargar datos desde backend
     let portfolioAtlas = [];
     try {
-        const res = await fetch("https://TU-APP.onrender.com/portfolio");        portfolioAtlas = await res.json();
-        console.log("📦 Datos de Atlas:", portfolioAtlas);
+            const res = await fetch("https://los-leones-backend.onrender.com/portfolio");        console.log("📦 Datos de Atlas:", portfolioAtlas);
     } catch (err) {
         console.error("❌ Error cargando Atlas", err);
         return;
