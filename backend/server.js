@@ -24,7 +24,6 @@ const PORT = process.env.PORT || 3000;
 // Validación rápida de MONGO_URI antes de intentar conectar
 if (!MONGO_URI) {
   console.error('❌ MONGO_URI no está definida. Verificá tu .env o las variables de entorno en Render.');
-  // Salir para que no intente conectar con undefined
   process.exit(1);
 }
 
@@ -36,8 +35,6 @@ mongoose.connect(MONGO_URI, {
 .then(() => console.log('✅ Conectado a MongoDB Atlas'))
 .catch(err => {
     console.error('❌ Error conectando a MongoDB:', err);
-    // Opcional: no salir automáticamente para ver logs; si preferís salir:
-    // process.exit(1);
 });
 
 // ==== SCHEMA Y MODELO DE PORTFOLIO ==== //
@@ -47,7 +44,6 @@ const portfolioSchema = new mongoose.Schema({
     imagenes: [String]
 }, { collection: 'portfolio' }); // <-- nombre exacto de la colección en Atlas
 
-// Forzar la colección 'portfolio' (tercer parámetro)
 const Portfolio = mongoose.model('Portfolio', portfolioSchema, 'portfolio');
 
 // ==== RUTAS ==== //
@@ -68,6 +64,28 @@ app.get('/portfolio', async (req, res) => {
         console.error('❌ Error en GET /portfolio:', err);
         res.status(500).json({ error: 'Error obteniendo el portfolio' });
     }
+});
+
+// Endpoint de debug para ver base de datos, colecciones y conteo
+app.get('/debug/db', async (req, res) => {
+  try {
+    const dbName = mongoose.connection.db?.databaseName || 'no disponible aún';
+    const collections = await mongoose.connection.db.listCollections().toArray();
+    let portfolioCount = null;
+    try {
+      portfolioCount = await mongoose.connection.db.collection('portfolio').countDocuments();
+    } catch (errInner) {
+      portfolioCount = `error: ${errInner.message}`;
+    }
+
+    res.json({
+      dbName,
+      collections: collections.map(c => c.name),
+      portfolioCount
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message || String(err) });
+  }
 });
 
 // (Opcional) Crear nuevo item de portfolio por POST
