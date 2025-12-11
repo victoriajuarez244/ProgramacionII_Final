@@ -29,9 +29,9 @@ const portfolioSchema = new mongoose.Schema({
     titulo: String,
     descripcion: String,
     imagenes: [String]
-}, { collection: 'portafolios' });
+}, { collection: 'portfolio' });  // Cambiado a 'portfolio'
 
-const Portfolio = mongoose.model('Portfolio', portfolioSchema);
+const Portfolio = mongoose.model('Portfolio', portfolioSchema, 'portfolio');  // Forzar colección 'portfolio'
 
 // ==== RUTAS ==== //
 

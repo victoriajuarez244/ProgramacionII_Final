@@ -1,7 +1,13 @@
 {
+  "name": "los-leones-backend",
+  "version": "1.0.0",
+  "description": "Backend de Los Leones con Express y MongoDB Atlas",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "mongoose": "^6.13.8"
   }
