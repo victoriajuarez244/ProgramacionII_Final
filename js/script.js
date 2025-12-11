@@ -235,61 +235,44 @@ contactForm.addEventListener('submit', function(e) {
 });
 
 /* ============================================================
-   📌 PORTFOLIO DINÁMICO DESDE ATLAS + LIGHTBOX
+   📌 PORTFOLIO ESTÁTICO + LIGHTBOX USANDO DATOS DE ATLAS
    ============================================================ */
-document.addEventListener("DOMContentLoaded", async () => {
+   document.addEventListener("DOMContentLoaded", async () => {
 
-    const contenedor = document.getElementById("portfolio-container");
-    if (!contenedor) return;
-
+    // 1) Cargar datos desde Atlas
     let portfolioAtlas = [];
 
     try {
         const res = await fetch("https://los-leones-backend.onrender.com/portfolio");
         portfolioAtlas = await res.json();
-
-        console.log("📦 Datos recibidos:", portfolioAtlas);
-
-        contenedor.innerHTML = "";
-
-        portfolioAtlas.forEach(item => {
-            const imgURL = item.imagenes?.[0] || "";
-
-            contenedor.innerHTML += `
-                <div class="portfolio-item">
-                    <img src="${imgURL}" alt="${item.titulo}">
-                    <h3>${item.titulo}</h3>
-                </div>
-            `;
-        });
-
-        // Activar eventos del lightbox
-        activarLightbox(portfolioAtlas);
-
+        console.log("📦 Datos cargados desde Atlas:", portfolioAtlas);
     } catch (error) {
-        console.error("❌ Error cargando Atlas:", error);
+        console.error("❌ Error al cargar datos de Atlas", error);
+        return;
     }
-});
 
-/* ============================================================
-   🎨 LIGHTBOX
-   ============================================================ */
-function activarLightbox(portfolioAtlas) {
+    // 2) Agregar eventos a los items ESTÁTICOS del HTML
     document.querySelectorAll(".portfolio-item").forEach(item => {
         item.addEventListener("click", () => {
+
             const titulo = item.querySelector("h3").textContent.trim();
-            const datos = portfolioAtlas.find(p => p.titulo === titulo);
+
+            // Buscar en Atlas un item con ese título EXACTO
+            const datos = portfolioAtlas.find(p => p.titulo.trim() === titulo);
 
             if (!datos) {
-                alert("No hay imágenes cargadas para: " + titulo);
+                alert("No hay imágenes cargadas en la base para: " + titulo);
                 return;
             }
 
             abrirLightbox(datos);
         });
     });
-}
+});
 
+/* ============================================================
+   🎨 LIGHTBOX
+   ============================================================ */
 function abrirLightbox(item) {
     const modal = document.getElementById("portfolio-modal");
     const modalTitle = document.getElementById("portfolio-modal-title");
@@ -307,7 +290,14 @@ function abrirLightbox(item) {
     modal.classList.add("active");
 }
 
+// Cerrar modal
 document.querySelector(".portfolio-modal__close")
 .addEventListener("click", () => {
     document.getElementById("portfolio-modal").classList.remove("active");
 });
+
+document.querySelector(".portfolio-modal__close")
+.addEventListener("click", () => {
+    document.getElementById("portfolio-modal").classList.remove("active");
+});
+
